@@ -1,5 +1,6 @@
 package com.smartacademy.controller;
 
+import com.smartacademy.model.Token;
 import com.smartacademy.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
@@ -13,12 +14,12 @@ public class TokenController {
     @Autowired
     private CustomerService customerService;
 
-    @PostMapping("/token")
-    public String getToken(@RequestParam("username") final String username, @RequestParam("password") final String password) {
-        String token = customerService.login(username, password);
-        if (StringUtils.isEmpty(token)) {
-            return "no token found";
+    @PostMapping(value = "/token",  produces = "application/json")
+    public Token getToken(@RequestParam("username") final String username, @RequestParam("password") final String password) {
+        String tokenString = customerService.login(username, password);
+        if (StringUtils.isEmpty(tokenString)) {
+            return new Token("no token found");
         }
-        return token;
+        return new Token(tokenString);
     }
 }

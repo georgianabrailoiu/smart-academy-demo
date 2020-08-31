@@ -7,8 +7,6 @@ INSERT INTO MOVIE(id,name,category) values (2,'A Star Is Born','Romance')
 ON CONFLICT(id) DO NOTHING;
 INSERT INTO MOVIE(id,name,category) values (3,'The Best of Me','Romance')
 ON CONFLICT(id) DO NOTHING;
-INSERT INTO MOVIE(id,name,category) values (4,'To All the Boys I have Loved Before','Romance')
-ON CONFLICT(id) DO NOTHING;
 INSERT INTO MOVIE(id,name,category) values (5,'The Adjustment Bureau','Thriller')
 ON CONFLICT(id) DO NOTHING;
 INSERT INTO MOVIE(id,name,category) values (6,'The 40-Year-Old Virgin','Comedy')
